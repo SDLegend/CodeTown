@@ -1,0 +1,48 @@
+def is_greatest(s):
+    sl=list(s)
+    srl=sorted(sl,reverse=True)
+    if sl==srl:
+        return True
+    else:
+        return False
+
+def give_str(s):
+    #print(s)
+    sl=list(s)
+    sortedl=sorted(sl)
+    temp=sl[0]
+    i=sortedl.index(temp)
+    stringy=sortedl[i+1]
+    if sortedl[i+1]==temp:
+        while sortedl[i+1]==temp:
+            i+=1
+    stringy=sortedl[i+1]
+    #print(sortedl[i+1])
+    del sortedl[i+1]
+    stringy+="".join(sortedl)
+    return stringy
+
+t=int(input())
+for i in range(t):
+    ip=input()
+    ipl=list(ip)
+    iplr=ipl.copy()
+    iplr.reverse()
+    s=""
+    ans=''
+    if is_greatest(ip):
+        print("no answer")
+    else:
+        for j in iplr:
+            s=j+s
+            #print(s,end=" ")
+            if is_greatest(s):
+                continue
+            else:
+                k=len(s)
+                for m in range(k):
+                    del ipl[-1]
+                temp=give_str(s)
+                ans="".join(ipl)+temp
+                break
+        print(ans)

@@ -1,0 +1,10 @@
+t=int(input())
+for m in range(t):
+    n=int(input())
+    lst=[int(x) for x in input().split()]
+    lst.sort(reverse=True)
+    count=0
+    for i in range(2,n):
+        if count<lst[1]-1:
+            count+=1
+    print(count)

@@ -1,0 +1,18 @@
+t=int(input())
+for k in range(t):
+    s=input()
+    lst=list(s)
+    if len(set(lst))!=len(lst):
+        print("No")
+    else:
+        lst.sort()
+        lst2=[]
+        sum=0
+        for i in lst:
+            lst2.append(ord(i))
+        for i in range(len(lst2)-1):
+            sum+=lst2[i+1]-lst2[i]
+        if (sum+1)==len(lst):
+            print("Yes")
+        else:
+            print("No")

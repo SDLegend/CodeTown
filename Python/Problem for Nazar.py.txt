@@ -1,0 +1,55 @@
+from math import *
+
+l,r=[int(x) for x in input().split()]
+logl=int(log(l,2))
+logr=int(log(r,2))
+difference=[]
+sum=0
+for i in range(logr+1):
+    temp=sum
+    if i%2==0:
+        temp-=2
+    difference.append(temp)
+    sum+=temp
+print(difference)
+terms=[1]
+for i in range(1,logr+1):
+    temp=terms[i-1]+difference[i-1]
+    terms.append(temp)
+print(terms)
+
+starting_no=0
+for m in range(logl):
+    starting_no+=terms[m]
+    starting_no+=2*((2**m)-1)
+starting_no+=1
+print(starting_no)
+
+finalsum=0
+term=2**logl
+flag=True
+current=starting_no
+j=logl
+while True:
+    if term>r:
+        break
+    if term>=l:
+        finalsum+=current
+        print("Current:",current)
+    for k in range(1,2**j):
+        current+=2
+        term+=1
+        if term>r:
+            flag=False
+            break
+        if term>=l:
+            finalsum+=current
+            print("Current:",current)
+    if flag:
+        current+=terms[j]
+        term+=1
+        j+=1
+    else:
+        break
+
+print(finalsum)

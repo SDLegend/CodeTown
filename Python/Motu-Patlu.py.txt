@@ -1,0 +1,29 @@
+t=int(input())
+for k in range(t):
+    lst=[]
+    sum=0
+    patlu=0
+    n=int(input())
+    for j in input().split():
+        temp=int(j)
+        sum+=temp
+        lst.append(temp)
+    lst.reverse()
+    for i in lst:
+        if sum<=i:
+            break
+        if sum-(3*i)>0:
+            patlu+=1
+            sum-=3*i
+            continue
+        if sum-(3*i)<=0:
+            patlu+=1
+            break
+    motu=len(lst)-patlu
+    print(motu,patlu)
+    if motu>patlu:
+        print("Motu")
+    elif patlu>motu:
+        print("Patlu")
+    else:
+        print("Tie")

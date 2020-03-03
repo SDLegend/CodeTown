@@ -1,0 +1,10 @@
+t=int(input())
+for i in range(t):
+    final=[]
+    ip=input().split()
+    k=int(ip[0])
+    del ip[0]
+    for j in range(k):
+        for m in ip:
+            final.append(m+str(j+1))
+    print(final)

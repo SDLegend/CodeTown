@@ -1,0 +1,15 @@
+def customsort(x):
+    return x[1]
+
+t=int(input())
+for i in range(t):
+    final=[]
+    ip=input().split()
+    for j in ip:
+        temp=[int(m) for m in j.split(",")]
+        temptuple=tuple(temp)
+        final.append(temptuple)
+    final.sort(key=customsort)
+    
+    print(final)
+                     

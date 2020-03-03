@@ -1,0 +1,28 @@
+def goAhead(lst,n,i,covered,sum,count):
+    if i==n or count[0]>=10:
+        sumall.append(sum)
+    else:
+        goAhead(lst,n,i+1,covered.copy(),sum,count.copy())
+        stringy=str(lst[i])
+        flag=True
+        for j in stringy:
+            if j in covered:
+                flag=False
+                break
+        if flag:
+            for j in stringy:
+                covered.add(j)
+            sum+=lst[i]
+            count[0]+=1
+            goAhead(lst,n,i+1,covered.copy(),sum,count.copy())
+sumall=[]
+t=int(input())
+for k in range(t):
+    sumall=[]
+    n=int(input())
+    lst=[int(x) for x in input().split()]
+    sum=0
+    covered=set()
+    count=[0]
+    goAhead(lst,n,0,covered,sum,count)
+    print(max(sumall))

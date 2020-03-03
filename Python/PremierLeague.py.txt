@@ -1,0 +1,168 @@
+#Premier League
+
+import random
+
+teams=["Liverpool","Manchester United","Arsenal","Chelsea","Manchester City","Tottenham","Leicester City","Wolves","Everton","West Ham","Newcastle United","Aston Villa","Southampton","Burnley FC","Brighton","Watford","Sheff Utd","Norwich City","Crystal Palace","Bournemouth"]
+matches=[]
+for i in teams:
+    for j in teams:
+        if i==j:
+            continue
+        #print(i+" vs "+j)
+        matches.append([i,j])
+
+for i in range(1,39):
+    print("Matchday "+str(i)+":")
+    current=teams.copy()
+
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    flag=True
+    while flag:
+
+        home=random.choice(current)
+        current.remove(home)
+        away=random.choice(current)
+        current.remove(away)
+        
+        if [home,away] in matches:
+            matches.remove([home,away])
+            print(home+" vs "+away)
+            flag=False
+        else:
+            current.append(home)
+            current.append(away)
+    

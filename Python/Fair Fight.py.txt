@@ -1,0 +1,24 @@
+t=int(input())
+for m in range(t):
+    n,k=[int(x) for x in input().split()]
+    charles=[int(x) for x in input().split()]
+    delila=[int(x) for x in input().split()]
+    pairs=0
+    for i in range(n):
+        cmax=charles[i]
+        dmax=delila[i]
+        for j in range(i,n):
+            #print("i:",i,"j:",j)
+            #print("cmax:",cmax,"charles[j]:",charles[j])
+            if charles[j]>cmax:
+                cmax=charles[j]
+            #print("cmax:",cmax,"charles[j]:",charles[j])
+            #print("dmax:",dmax,"delila[j]:",delila[j])
+            if delila[j]>dmax:
+                dmax=delila[j]
+            #print("dmax:",dmax,"delila[j]:",delila[j])
+            #print(cmax,dmax)
+            if abs(cmax-dmax)<=k:
+                pairs+=1
+                #print("+1")
+    print("Case #"+str(m+1)+":",pairs)

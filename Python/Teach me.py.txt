@@ -1,0 +1,15 @@
+t=int(input())
+for m in range(t):
+    n,s=[int(x) for x in input().split()]
+    skills,count=[],0
+    for i in range(n):
+        temp=[int(x) for x in input().split()]
+        temp.pop(0)
+        skills.append(set(temp))
+    #print(skills)
+    for i in range(n):
+        for j in range(n):
+            if len(skills[i].difference(skills[j]))>0:
+                count+=1
+    print(f"Case #{m+1}:",end=" ")
+    print(count)

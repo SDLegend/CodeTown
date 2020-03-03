@@ -1,0 +1,35 @@
+stringy=input()
+q=int(input())
+s=""
+j=0
+for i in range(q):
+    ip=input().split()
+    d=ip[0]
+    n=int(ip[1])
+    if d=='L':
+        j=(i-n)%n
+        temp=stringy[j]
+    else:
+        j=(i+n)%n
+        temp=stringy[j]
+    s+=temp
+
+if len(stringy)==len(s):
+    dicts=dict()
+    dictstringy=dict()
+    for i in stringy:
+        if i in dictstringy:
+            dictstringy[i]+=1
+        else:
+            dictstringy[i]=1
+    for i in s:
+        if i in dicts:
+            dicts[i]+=1
+        else:
+            dicts[i]=1
+    if cmp(dicts,dictstringy)==0:
+        print("YES")
+    else:
+        print("NO")
+else:
+    print("NO")

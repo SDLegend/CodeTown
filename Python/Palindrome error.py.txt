@@ -1,0 +1,13 @@
+t=int(input())
+for i in range(t):
+    ip=[x for x in input().lower()]
+    if " " in ip:
+        ip.remove(" ")
+    ir=ip.copy()
+    ip.reverse()
+    #ip=str(ip)
+    #ir=str(ir)
+    if ir==ip:
+        print("Yes")
+    else:
+        print("No")

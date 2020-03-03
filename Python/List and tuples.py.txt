@@ -1,0 +1,19 @@
+def customsort(x):
+    return x[1]
+
+t=int(input())
+for i in range(t):
+    final=[]
+    ip=input().split()
+    for j in ip:
+        j=tuple([int(m) for m in j.split(",")])
+        final.append(j)
+    #print(final)
+    ans=sorted(final,key=customsort)
+    for k in range(len(ans)):
+        if k==len(ans)-1:
+            break
+        if ans[k][1]==ans[k+1][1]:
+            if ans[k][0]>ans[k+1][0]:
+                ans[k][0],ans[k+1][0]=ans[k+1][0],ans[k][0]
+    print(ans)

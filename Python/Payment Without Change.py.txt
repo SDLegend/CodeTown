@@ -1,0 +1,11 @@
+for _ in range(int(input())):
+    a,b,n,s=[int(x) for x in input().split()]
+    if s//n<=a and s%n<=b:
+        print("YES")
+    elif s//n<=a:
+        if s-a*(s//n)<=b:
+            print("YES")
+        else:
+            print("NO")
+    else:
+        print("NO")

@@ -1,0 +1,33 @@
+def goAhead(x,i,n,num,height):
+    #print("Called",(x,i,n,num,height))
+    global lst,countbranches
+    if height==n-1:
+        #print("Got one\n")
+        countbranches+=1
+    for i in range(i,num):
+        if i>=num:
+            #print("Passing")
+            pass
+        else:
+            #print("Comparing",x,lst[i])
+            if lst[i]-x>=4:
+                #print("Going deep to",lst[i],"from",x)
+                goAhead(lst[i],i+1,n,num,height+1)
+
+countbranches=0
+n=int(input())
+stringy=input()
+breaks=set()
+vowels=("a","e","i","o","u")
+for i in range(3,len(stringy)-4):
+    if not (stringy[i] in vowels or stringy[i+1] in vowels):
+        breaks.add(i)
+#print(breaks)
+lst=sorted(breaks)
+num=len(lst)
+#print(lst)
+for j in range(num):
+    #print("Starting with",lst[j])
+    goAhead(lst[j],j+1,n,num,1)
+    #print("\n\n")
+print(countbranches)

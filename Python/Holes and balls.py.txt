@@ -1,0 +1,24 @@
+n=int(input())
+holes=[int(x) for x in input().split()]
+m=int(input())
+balls=[int(x) for x in input().split()]
+holes.reverse()
+hash=dict()
+for i in range(n):
+    hash[i+1]=0
+
+position=[]
+for j in range(m):
+    #print(j+1,balls[j],holes)
+    flag=True
+    for i in range(n):
+        if balls[j]<=holes[i] and hash[i+1]<=n-i-1:
+            hash[i+1]+=1
+            flag=False
+            position.append(n-i)
+            break
+    if flag:
+        position.append(0)
+    #print(hash,position[-1])
+for i in position:
+    print(i,end=" ")

@@ -1,0 +1,35 @@
+n=int(input())
+for m in range(0,n):
+    x=int(input())
+    y=list(str(x))
+    op=0
+    c=0
+    for i in y:
+        if int(i)%2!=0:
+            c+=1
+            break
+        else:
+            c+=1
+    if (x%(10**(len(y)-c))>=((10**(len(y)-c))/2)):
+        op=1
+    else:
+        op=0
+    ans=0
+    def check(i):
+        temp=list(str(i))
+        for j in temp:
+            if (int(j)%2!=0):
+                return True
+        return False
+    if op==1:
+        while check(x):
+            x+=1
+            ans+=1
+        print(ans)
+    else:
+        while check(x):
+            x-=1
+            ans+=1
+        print(ans)
+    
+    #print(check(525))

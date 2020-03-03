@@ -1,0 +1,39 @@
+def checkall(x):
+    s=set(x)
+    if 0 in s and len(s)==1:
+        return True
+    else:
+        return False
+
+t=int(input())
+for u in range(t):
+    m,n=[int(x) for x in input().split()]
+    phase=[int(x) for x in input().split()]
+    state=[int(x) for x in input().split()]
+
+    if sum(state)!=sum(phase):
+        print("NO")
+    else:
+        for i in phase:
+            templist=[]
+            flag=False
+            for j in range(i):
+                max=state[0]
+                index=0
+                for k in range(n-len(templist)):
+                    if max<state[k]:
+                        max=state[k]
+                        index=k
+                temp=state.pop(index)
+                temp-=1
+                templist.append(temp)
+                if temp<0:
+                    flag=True
+                    break
+            state.extend(templist)
+            if flag:
+                break
+        if checkall(state) and not flag:
+            print("YES")
+        else:
+            print("NO")

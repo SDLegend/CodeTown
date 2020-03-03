@@ -1,0 +1,24 @@
+n=int(input())
+for m in range(0,n):
+    x=int(input())
+    y=list(str(x))
+    ans1=0
+    ans2=0
+    def check(i):
+        temp=list(str(i))
+        for j in temp:
+            if (int(j)%2!=0):
+                return True
+        return False
+    p=x
+    q=x
+    while check(p):
+        p+=1
+        ans1+=1
+    while check(q):
+        q-=1
+        ans2+=1
+    if (ans1>ans2):
+        print(ans2)
+    else:
+        print(ans1)

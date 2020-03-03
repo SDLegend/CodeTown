@@ -1,0 +1,45 @@
+def is_subsequence(x,y):
+    i,j,flag=0,0,False
+    while j<len(y):
+        if x[i]==y[j]:
+            i+=1
+        j+=1
+        if i>=len(x):
+            flag=True
+            break
+    return flag
+
+def is_subdict(x,y):
+    flag=True
+    for i in x:
+        if i not in y:
+            flag=False
+            break
+        else:
+            if not y[i]>=x[i]:
+                flag=False
+                break
+    return flag
+
+t=int(input())
+for m in range(t):
+    s=input()
+    t=input()
+    p=input()
+    dictt=dict()
+    dicttemp=dict()
+    temp=s+p
+    for i in temp:
+        if i in dicttemp:
+            dicttemp[i]+=1
+        else:
+            dicttemp[i]=1
+    for i in t:
+        if i in dictt:
+            dictt[i]+=1
+        else:
+            dictt[i]=1
+    if is_subsequence(s,t) and is_subdict(dictt,dicttemp):
+        print("YES")
+    else:
+        print("NO")

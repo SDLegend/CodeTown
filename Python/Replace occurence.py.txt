@@ -1,0 +1,17 @@
+t=int(input())
+for i in range(t):
+    ip=input()
+    if not ip.isidentifier():
+        print("Invalid")
+        continue
+    chars=[x for x in ip]
+    temp=chars[0]
+    ip=ip.replace(str(temp),"$")
+    #print(ip)
+    final=list(ip)
+    del final[0]
+    ans=temp
+    for n in final:
+        ans=ans+n
+    print(ans)
+    

@@ -1,0 +1,44 @@
+t=int(input())
+for m in range(t):
+    p,q=[int(x) for x in input().split()]
+    people=[]
+    for k in range(p):
+        x,y,d=input().split()
+        x=int(x)
+        y=int(y)
+        people.append([x,y,d])
+    grid=[]
+    for i in range(q+1):
+        grid.append([])
+        for j in range(q+1):
+            grid[-1].append(-1)
+    #print(people)
+    #print(grid)
+    maxx=0
+    for i in range(q+1):
+        for j in range(q+1):
+            count=0
+            for k in people:
+                if k[2]=="N" and j>k[1]:
+                    count+=1
+                if k[2]=="S" and j<k[1]:
+                    count+=1
+                if k[2]=="E" and i>k[0]:
+                    count+=1
+                if k[2]=="W" and i<k[0]:
+                    count+=1
+            grid[i][j]=count
+            if count>maxx:
+                maxx=count
+    #print(maxx)
+    flag=True
+    for i in range(q+1):
+        for j in range(q+1):
+            if grid[i][j]==maxx:
+                print("Case #"+str(m+1)+":",i,j)
+                flag=False
+                break
+        if flag:
+            pass
+        else:
+            break

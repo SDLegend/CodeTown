@@ -1,0 +1,23 @@
+t=input().split(":")
+x=int(input())
+ans=0
+def next_time():
+    t[1]=str(int(t[1])+1)
+    if (int(t[1])>59):
+        t[1]=str(int(t[1])-60)
+        t[0]=str(int(t[0])+1)
+    if (int(t[0])>23):
+        t[0]=str(int(t[0])-23)
+
+def sum():
+    s=int(t[1][0])+int(t[1][1])+int(t[0][0])+int(t[0][1])
+    return s
+
+while True:
+    if (sum()%x==0):
+        print(ans)
+        break
+    else:
+        next_time()
+        ans+=1
+        print(t)

@@ -1,0 +1,20 @@
+n=int(input())
+lst=[int(x) for x in input().split()]
+max=0
+covered=set()
+for i in range(n):
+    temp=lst.copy()
+    if temp[i] in covered:
+        continue
+    #print(i,temp)
+    try:
+        while temp[i]==temp[-1]:
+            del temp[-1]
+    except:
+        pass
+    j=len(temp)-1
+    covered.add(temp[i])
+    #print(j,j-i)
+    if (j-i)>max:
+        max=j-i
+print(max)

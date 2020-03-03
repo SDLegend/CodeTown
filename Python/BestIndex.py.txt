@@ -1,0 +1,29 @@
+n=int(input())
+lst=[int(x) for x in input().split()]
+lst.reverse()
+#print(lst)
+max=lst[0]
+sum=0
+sum_temp=sum
+a=2
+s=2
+pa=1
+#print("sum_temp",sum_temp)
+for i in range(n):
+    #print("I",i)
+    sum+=lst[i]
+    if i>=a:
+        sum_temp=sum
+        s+=1
+        pa+=s-1
+        a+=s
+    else:
+        if i==0:
+            sum_temp=sum
+        else:
+            sum_temp=sum_temp+lst[i]-lst[i-pa]
+    #print("Sum-Temp",sum_temp)
+    if sum_temp>max:
+        max=sum_temp
+    #print(sum_temp)
+print(max)

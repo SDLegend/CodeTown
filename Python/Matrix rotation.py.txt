@@ -1,0 +1,68 @@
+def rotate(lst,k):
+    lst.reverse()
+    temprotate=[]
+    l=len(lst)
+    k%=l
+    for i in range(l-k,l):
+        temprotate.append(lst[i])
+    for i in range(0,l-k):
+        temprotate.append(lst[i])
+    temprotate.reverse()
+    return temprotate
+
+
+m,n,r=[int(x) for x in input().split()]
+matrix=[]
+for i in range(m):
+    temp=[int(x) for x in input().split()]
+    matrix.append(temp)
+min=m if m<n else n
+l=min//2
+data=[]
+for k in range(l):
+    temp=[]
+    i=k
+    for j in range(k,n-k):
+        temp.append(matrix[i][j])
+    j=n-1-k
+    for i in range(k+1,m-k):
+        temp.append(matrix[i][j])
+    i=m-1-k
+    for j in range(n-k-2,k-1,-1):
+        temp.append(matrix[i][j])
+    j=k
+    for i in range(m-k-2,k,-1):
+        temp.append(matrix[i][j])
+    data.append(temp)
+#print(data)
+final=[]
+for x in data:
+    final.append(rotate(x,r))
+#print(final)
+matrixr=matrix.copy()
+#print(matrixr)
+index=-1
+for k in range(l):
+    #index+=1
+    i=k
+    for j in range(k,n-k):
+        index+=1
+        matrixr[i][j]=final[k][index]
+    j=n-1-k
+    for i in range(k+1,m-k):
+        index+=1
+        matrixr[i][j]=final[k][index]
+    i=m-1-k
+    for j in range(n-k-2,k-1,-1):
+        index+=1
+        matrixr[i][j]=final[k][index]
+    j=k
+    for i in range(m-k-2,k,-1):
+        index+=1
+        matrixr[i][j]=final[k][index]
+    index=-1
+#print(matrixr)
+for x in matrixr:
+    for y in x:
+        print(y,end=" ")
+    print()

@@ -1,0 +1,21 @@
+t=int(input())
+for j in range(t):
+    n=int(input())
+    lst=[int(x) for x in input()]
+    s=[]
+    a=n-(n//2)
+    print(a)
+    i=0
+    flag=1
+    sum=0
+    while i<n:
+        if flag==1:
+            while i<a:
+                sum+=lst[i]
+                i+=1
+            s.append(sum)
+            flag=0
+        sum=sum+lst[i]-lst[i-a]
+        s.append(sum)
+        i+=1
+    print("Case #"+str(j+1)+":",max(s))

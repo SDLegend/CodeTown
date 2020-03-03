@@ -1,0 +1,59 @@
+def customsort1(x):
+    return x[0]
+
+def customsort2(x):
+    return x[1]
+
+def mymod(x):
+    if x<0:
+        return -x
+    return x
+
+def calculate_distance(x,y):
+    return mymod(x[0]-y[0])+mymod(x[1]-y[1])
+
+n,m=[int(x) for x in input().split()]
+hotels=set()
+for _ in range(int(input())):
+    temp=[int(x) for x in input().split()]
+    temp[0]-=1
+    temp[1]-=1
+    hotels.add(tuple(temp))
+max_distance=int(input())
+
+counthotels=dict()
+maxcount=0
+possible=set()
+for i in range(n):
+    for j in range(m):
+        if (i,j) in hotels:
+            continue
+        count=0
+        for y in hotels:
+            x=(i,j)
+            dist=calculate_distance(x,y)
+            if dist<=max_distance:
+                count+=1
+        counthotels[(i,j)]=count
+        if count>maxcount:
+            maxcount=count
+            possible.clear()
+            possible.add(tuple([i,j]))
+        elif count==maxcount:
+            possible.add(tuple([i,j]))
+"""
+print(counthotels)
+for i in sorted(counthotels,key=customsort1):
+    if counthotels[i]==maxcount:
+        print(i)
+print(possible)"""
+lowestx=[]
+for i in sorted(possible,key=customsort1):
+    if len(lowestx)==0:
+        lowestx.append(i)
+    else:
+        if lowestx[0][0]==i[0]:
+            lowestx.append(i)
+lowestx.sort(key=customsort2)
+print(lowestx[0][1]+1,lowestx[0][0]+1,maxcount)
+        

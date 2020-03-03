@@ -1,0 +1,36 @@
+def customsort(lst):
+    for x in lst:
+        tt=k-x
+        print("TT:",tt ,end=" ")
+        if tt>=0:
+            sortedlist.append(tt)
+    print("K:",k,"sortedlist:",sortedlist)
+    return sortedlist
+sortedlist=[]
+t=int(input())
+for i in range(t):
+    n,p=[int(x) for x in input().split()]
+    lst=[int(x) for x in input().split()]
+    a=[]
+    for k in lst:
+        sortedlist=[]
+        temp=customsort(lst)
+        temp.sort()
+        c=0
+        sum=0
+        flag=False
+        print("K:",k,"Temp:",temp)
+        for j in temp:
+            if j<0:
+                temp.remove(j)
+                continue
+            if c<p and len(temp)>=p:
+                sum+=j
+                flag=True
+                c+=1
+                continue
+            break
+        if flag:
+            a.append(sum)
+        print(a)
+    print("Case #{}: {}".format(i+1,min(a)))

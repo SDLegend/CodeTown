@@ -1,0 +1,33 @@
+def mycount(s,l,r):
+    l-=1
+    r-=1
+    hash=dict()
+    for j in range(l,r+1):
+        if s[j] in hash:
+            hash[s[j]]+=1
+        else:
+            hash[s[j]]=1
+    #print(hash)
+    ce=0
+    co=0
+    for j in hash:
+        if hash[j]%2==0:
+            ce+=1
+        else:
+            co+=1
+    if co==1 or co==0:
+        return True
+    else:
+        return False
+
+t=int(input())
+for m in range(t):
+    n,q=[int(x) for x in input().split()]
+    s=input()
+    count=0
+    for i in range(q):
+        l,r=[int(x) for x in input().split()]
+        #print(mycount(s,l,r))
+        if mycount(s,l,r):
+            count+=1
+    print("Case #"+str(m+1)+":",count)

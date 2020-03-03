@@ -1,0 +1,25 @@
+def traverse(lst,candy):
+    if len(lst)==1:
+        pass
+    else:
+        temp=[]
+        for i in range(0,len(lst),2):
+            if lst[i]+lst[i+1]>=10:
+                candy[0]+=1
+            temp.append((lst[i]+lst[i+1])%10)
+        traverse(temp,candy)
+
+candy=[0]
+hash=dict()
+n=int(input())
+lst=[int(x) for x in input().split()]
+q=int(input())
+for m in range(q):
+    candy[0]=0
+    l,r=[int(x) for x in input().split()]
+    if (l,r) in hash:
+        print(hash[(l,r)])
+    else:
+        traverse(lst[l-1:r],candy)
+        hash[(l,r)]=candy[0]
+        print(candy[0])

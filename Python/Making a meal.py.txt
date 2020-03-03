@@ -1,0 +1,26 @@
+t=int(input())
+for k in range(t):
+    n=int(input())
+    lst=[]
+    for j in range(n):
+        s=input()
+        lst.extend(list(s))
+    cc=lst.count('c')
+    co=lst.count('o')
+    cd=lst.count('d')
+    ce=lst.count('e')
+    ch=lst.count('h')
+    cf=lst.count('f')
+    count=0
+    while True:
+        if cc>=2 and co>=1 and cd>=1 and ce>=2 and ch>=1 and cf>=1:
+            cc-=2
+            co-=1 
+            cd-=1
+            ce-=2
+            ch-=1 
+            cf-=1
+            count+=1
+        else:
+            break
+    print(count)

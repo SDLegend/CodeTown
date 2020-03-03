@@ -1,0 +1,12 @@
+t=int(input())
+for i in range(t):
+    ip=input().split()
+    final=[]
+    ip.reverse()
+    for j in ip:
+        k=j.split(",")
+        final.append(k)
+    final[0].sort()
+    final[1].sort()
+    final[0].extend(final[1])
+    print(final[0])

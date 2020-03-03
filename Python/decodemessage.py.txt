@@ -1,0 +1,33 @@
+def numways(s):
+    temp=0
+    if len(s)==1:
+        return 1
+    if len(s)==2:
+        if int(s) in range(1,27):
+            return 2
+        else:
+            return 1
+    if s in hash:
+        return hash[s]
+    lst=list(s)
+    #print(lst)
+    ch1=lst[0]
+    del lst[0]
+    ss1="".join(lst)
+    ch2=lst[0]
+    del lst[0]
+    ss2="".join(lst)
+    #print(ch1)
+    #print(ch2)
+    #print(ch1+ch2)
+    ch=int(ch1)*10+int(ch2)
+    if int(ch) in range(1,27):
+        temp=numways(ss1)+numways(ss2)
+    else:
+        temp=numways(ss1)
+    hash[s]=temp
+    return temp
+
+hash=dict()
+n=input()
+print(numways(n))

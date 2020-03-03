@@ -1,0 +1,25 @@
+n=int(input())
+lst=[int(x) for x in input().split()]
+setlst=set(lst)
+if len(setlst)>3:
+    print("-1")
+elif len(setlst)==3:
+    sortedlst=sorted(setlst)
+    t1=sortedlst[1]-sortedlst[0]
+    t2=sortedlst[2]-sortedlst[1]
+    if t1==t2:
+        print(t1)
+    else:
+        print("-1")
+
+elif len(setlst)==2:
+    sortedlst=sorted(setlst)
+    temp=sortedlst[1]-sortedlst[0]
+    fl=temp/2
+    if (fl-int(fl))==0:
+        print(int(fl))
+    else:
+        print(sortedlst[1]-sortedlst[0])
+
+else:
+    print("0")

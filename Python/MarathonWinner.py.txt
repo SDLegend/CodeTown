@@ -1,0 +1,30 @@
+n=int(input())
+t=int(input())
+time=[]
+distance=[]
+track=[]
+count=[]
+for k in range(n):
+    temp=[int(x) for x in input().split()]
+    distance.append(temp.pop())
+    time.append(temp)
+    track.append([])
+    count.append(0)
+for i in range(n):
+    sum=0
+    for j in time[i]:
+        sum+=j
+        track[i].append(sum*distance[i])
+#print(track)
+
+for i in range(1,t-1,2):
+    temp=[]
+    for j in range(n):
+        temp.append(track[j][i])
+    maximum=max(temp)
+    #print(maximum)
+    for j in range(len(temp)):
+        if temp[j]==maximum:
+            count[j]+=1
+maxcount=max(count)
+print(count.index(maxcount)+1)

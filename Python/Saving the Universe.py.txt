@@ -1,0 +1,41 @@
+def check():
+    power=1
+    temp=0
+    for j in lst:
+        if j=='C':
+            power*=2
+        else:
+            temp+=power
+    return temp
+
+lst=None
+t=int(input())
+for m in range(t):
+    ip=input().split()
+    d=int(ip[0])
+    lst=list(ip[1])
+    #print("D=",d)
+    #print(lst)
+    if (lst.count('S')>d):
+        print("Case #"+str(m+1)+": "+"IMPOSSIBLE")
+        continue
+    np=0
+    if check()<=d:
+            print(np)
+            continue
+    while True:
+        #print("While loop")
+        enter=False
+        index=0
+        for x in lst[-1::-1]:
+            index-=1
+            if x=='S':
+                enter=True
+                continue
+            if enter:
+                lst[index],lst[index+1]=lst[index+1],lst[index]
+                np+=1
+                break
+        if check()<=d:
+            break
+    print("Case #"+str(m+1)+": "+str(np))

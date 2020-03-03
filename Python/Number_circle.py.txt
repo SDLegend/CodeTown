@@ -1,0 +1,22 @@
+n=int(input())
+lst=[int(x) for x in input().split()]
+lst.sort(reverse=True)
+count=0
+queue=[]
+for i in lst:
+    if count%2==0:
+        queue.insert(0,i)
+    else:
+        queue.append(i)
+    count+=1
+flag=True
+for i in range(n):
+    if not queue[(i+1)%n]+queue[i-1]>queue[i]:
+        flag=False
+        break
+if flag:
+    print("YES")
+    for i in queue:
+        print(i,end=" ")
+else:
+    print("NO")

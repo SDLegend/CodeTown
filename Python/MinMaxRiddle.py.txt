@@ -1,0 +1,33 @@
+def give_max(lst,size):
+    k=size-1
+    tuples=[]
+    temp=[]
+    for i in range(len(lst)):
+        #print("for start",tuples)
+        if i<=k:
+            temp.append(lst[i])
+            #print("inside if",tuples)
+            if i!=k:
+                continue
+        else:
+            del temp[0]
+            temp.append(lst[i])
+            #print("inside else",tuples)
+        #print(temp)
+        #print(tuples)
+        independent=temp.copy()
+        tuples.append(independent)
+        #print("end iter",tuples)
+    minimum=[]
+    #print(tuples)
+    for i in tuples:
+        minimum.append(min(i))
+    return max(minimum)
+
+n=int(input())
+lst=[int(x) for x in input().split()]
+maximum=[]
+for size in range(1,n+1):
+    maximum.append(give_max(lst,size))
+for x in maximum:
+    print(x,end=" ")
