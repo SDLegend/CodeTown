@@ -1,0 +1,28 @@
+for _ in range(int(input())):
+    stringy=input()
+    if stringy=="".join(sorted(stringy,reverse=True)):
+        print("no answer")
+    else:
+        n=len(stringy)
+        lst=list(stringy)
+        for i in range(n-1,0,-1):
+            if lst[i]<=lst[i-1]:
+                continue
+            else:
+                value=lst[i-1]
+                index=i-1
+                break
+        sublist=lst[index:]
+        sortedsublist=sorted(sublist)
+        for i in range(len(sublist)):
+            if sortedsublist[i]>value:
+                #print(sortedsublist[i],value,i)
+                nextchar=sortedsublist[i]
+                sortedsublist.pop(i)
+                break
+       # print(lst[:index],nextchar,sortedsublist)
+        answer=lst[:index]
+        answer.append(nextchar)
+        answer.extend(sortedsublist)
+        print("".join(answer))
+                
