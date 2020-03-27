@@ -1,0 +1,9 @@
+#https://www.techgig.com/codegladiators/question/UGIvaDFxbTdLVnE1Y0pVb2ZiNEVVWTBjSmkybE1kT0FoNHJpb2lNS0F0am1kV2txN29QemJEemt6NkNRQ21kMA==/1?msg_type=1
+
+n=int(input())
+lst=[int(x) for x in input().split()]
+items=[int(x) for x in input().split()]
+possible=[]
+for i in range(n):
+    possible.append(items[i]//lst[i])
+print(min(possible))

@@ -1,0 +1,17 @@
+#https://www.techgig.com/codegladiators/question/Z1NibHN0eDQ5UkU3MFJSNnUyZW52M043QldGVzFVVC9IMVp1VExSbnp4QTA3U2UxK3BXMjRRVklSQnkrK3FIYQ==/1?msg_type=1
+
+for _ in range(int(input())):
+    n=int(input())
+    teamgrev=[int(x) for x in input().split()]
+    teamopp=[int(x) for x in input().split()]
+    sortedgrev=sorted(teamgrev)
+    sortedopp=sorted(teamopp)
+    i,j,count=0,0,0
+    while i<n and j<n:
+        if sortedgrev[i]>sortedopp[j]:
+            count+=1
+            i+=1
+            j+=1
+        else:
+            i+=1
+    print(count)

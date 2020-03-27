@@ -1,0 +1,75 @@
+def biggerIsGreater(w):
+    if(w=="".join(reversed(w)) or w=="".join(sorted(w,reverse=True))):
+        return "no answer"
+    temp=w
+    maxi=w[-1]
+    indi=-1
+    for e in range(len(w)-1,0,-1):
+        if(e<=1 or w[e]>w[e-1]):
+            break
+    x=w[e:]
+    tempp=w[e-1]
+    maxi=w[e]
+    for foo in range(len(x)):
+        if(x[foo]>tempp and x[foo]<=maxi):
+            maxi,indi=x[foo], e+foo
+    # if(ord(w[e]) > ord(maxi)):
+    #         maxi,indi=w[e],e
+    ls=list(w)
+    #print(x,w,maxi,indi)
+    # if(indi!=-1):
+    #     ls[indi+1]=ls[e-1]
+    # else:
+    ls[indi]=ls[e-1]
+        
+    #print(indi,ls,e)
+    ls[e-1]=maxi
+    
+    #print("".join(ls))     
+    #print(w[e:], maxi)
+    m=ls[0:e]
+    sor="".join(m)+"".join(sorted(ls[e:]))
+    return sor
+    #return "".join(ls)
+compare=[]
+compare2=[]
+file=open("test.txt","r")
+for _ in range(10000):
+    stringy=file.readline()
+    compare2.append(biggerIsGreater(stringy))
+    if stringy=="".join(sorted(stringy,reverse=True)):
+        compare.append("no answer")
+    else:
+        n=len(stringy)
+        lst=list(stringy)
+        
+        for i in range(n-1,0,-1):
+            if lst[i]<=lst[i-1]:
+                continue
+            else:
+                value=lst[i-1]
+                index=i-1
+                break
+        sublist=lst[index:]
+        sortedsublist=sorted(sublist)
+        for i in range(len(sublist)):
+            if sortedsublist[i]>value:
+                #print(sortedsublist[i],value,i)
+                nextchar=sortedsublist[i]
+                sortedsublist.pop(i)
+                break
+       # print(lst[:index],nextchar,sortedsublist)
+        answer=lst[:index]
+        answer.append(nextchar)
+        answer.extend(sortedsublist)
+        compare.append("".join(answer))
+        if compare[-1]!=compare2[-1]:
+            print("Mistake yaha hai")
+            print(stringy)
+            break
+if compare==compare2:
+    print("Same to hai")
+else:
+    #print(compare)
+    #print(compare2)
+    print("Mili gadbad")
